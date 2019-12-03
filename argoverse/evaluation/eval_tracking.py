@@ -93,7 +93,7 @@ def get_distance(x1: np.ndarray, x2: np.ndarray, name: str) -> float:
         raise ValueError("Not implemented..")
 
 
-def get_forth_vertex_rect(
+def get_fourth_vertex_rect(
     p1: Tuple[float, float], p2: Tuple[float, float], p3: Tuple[float, float]
 ) -> Tuple[float, float]:
     x = p2[0] - p1[0] + p3[0]
@@ -267,7 +267,7 @@ def eval_tracks(
     num_fp = summary["num_false_positives"][0]
     num_miss = summary["num_misses"][0]
     num_switch = summary["num_switches"][0]
-    num_flag = summary["num_fragmentations"][0]
+    num_frag = summary["num_fragmentations"][0]
 
     acc_c.events.loc[acc_c.events.Type != "RAW", "D"] = acc_i.events.loc[acc_c.events.Type != "RAW", "D"]
 
@@ -288,7 +288,7 @@ def eval_tracks(
 
     out_string = (
         f"{fn} {num_frames} {mota:.2f} {motp_c:.2f} {motp_o:.2f} {motp_i:.2f} {idf1:.2f} {most_track:.2f} "
-        f"{most_lost:.2f} {num_fp} {num_miss} {num_switch} {num_flag} \n"
+        f"{most_lost:.2f} {num_fp} {num_miss} {num_switch} {num_frag} \n"
     )
     out_file.write(out_string)
 
